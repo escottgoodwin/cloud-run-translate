@@ -7,4 +7,6 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
-CMD python app.py
+WORKDIR /app
+ENV PORT=8080
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app:app
