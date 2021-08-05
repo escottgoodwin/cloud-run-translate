@@ -3,11 +3,11 @@ Translation flask API for the Helsinki NLP models available in the [Huggingface 
 
 ## Usage
 
-First create the directory where you want to store models (and change `MODEL_PATH` in `config.py` accordingly). Then you can download models using the command line utility. For example...
+First create the directory where you want to store models (and change `MODEL_PATH` in `config.py` accordingly). Then you can download models using the command line utility. Also in the config, set your languages, for a service that translates from English to Spanish - SOURCE_LANG='en' TARGET_LANG='es'.
 
 ```
 mkdir data
-python download_models.py --source en --target jap
+python download_models.py --source en --target es
 ```
 
 To run with Python>=3.6:
@@ -36,3 +36,5 @@ curl --location --request POST 'http://localhost:5000/translate' \
  "target":"fr"
 }'
 ```
+
+

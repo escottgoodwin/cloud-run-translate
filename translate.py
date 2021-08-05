@@ -1,8 +1,11 @@
 from transformers import MarianTokenizer, MarianMTModel
+from config import *
+
+model_name = f'opus-mt-{SOURCE_LANG}-{TARGET_LANG}'
 
 def load_model():
-    tokenizer = MarianTokenizer.from_pretrained('opus-mt-en-fr')
-    model = MarianMTModel.from_pretrained('opus-mt-en-fr')      
+    tokenizer = MarianTokenizer.from_pretrained(model_name)
+    model = MarianMTModel.from_pretrained(model_name)      
     return model, tokenizer
 
 def translate(text):
