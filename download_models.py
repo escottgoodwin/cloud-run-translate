@@ -1,19 +1,12 @@
 import os
-import argparse
 import urllib
 from urllib.request import urlretrieve
 from config import *
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--source", type=str, help="source language code")
-parser.add_argument(
-    "--target", type=str, help="sum the integers (default: find the max)"
-)
+model = f'opus-mt-{SOURCE_LANG}-{TARGET_LANG}'
 
-
-def download_language_model(source, target):
-    model = f"opus-mt-{source}-{target}"
-    print(">>>Downloading data for %s to %s model..." % (source, target))
+def download_language_model():
+    print(f">>>Downloading data for {SOURCE_LANG} to {TARGET_LANG} model...")
     os.makedirs(os.path.join("data", model))
     for f in FILENAMES:
         try:
@@ -30,5 +23,4 @@ def download_language_model(source, target):
 
 
 if __name__ == "__main__":
-    args = parser.parse_args()
-    download_language_model(args.source, args.target)
+    download_language_model()
