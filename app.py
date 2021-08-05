@@ -10,7 +10,7 @@ def health_check():
     """Confirms service is running"""
     return f"Machine translation {SOURCE_LANG} to {TARGET_LANG} service is up and running."
 
-@app.route('/translate1', methods=["POST"])
+@app.route('/translate', methods=["POST"])
 def get_prediction1():
     text = request.json['text']
     translation = translate(text)
